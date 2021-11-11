@@ -1,3 +1,39 @@
+$(document).ready(function(){
+    $("h1").click(function(){
+      $(this).hide();
+    });
+  });
+
+$(document).ready(function(){
+    $("input").focus(function(){
+      $(this).css("background-color", "pink");
+    });
+    $("input").blur(function(){
+      $(this).css("background-color", "lightpink");
+    });
+  });
+
+  $(document).ready(function(){
+    $("#p1").mouseenter(function(){
+      alert("Click on a box to toggle transform!");
+    });
+  });
+
+  $(document).ready(function(){
+    $("#p1").mouseleave(function(){
+      alert("Try the interesting effects!");
+    });
+  });
+
+  $(document).ready(function(){
+    $("#p2").hover(function(){
+      alert("Double click on a circle to move it !");
+    },
+    function(){
+      alert("Bye! Try other ones!");
+    }); 
+  });
+  
 const app = {
 
     data: detailedBandObject, //this comes from my data.js files
@@ -10,30 +46,5 @@ const app = {
       $('.circle').dblclick(e => {
         $(e.currentTarget).toggleClass('moveMe')      
       });
-  
-      $('.listBeatles').click(function () {
-        app.listBeatles();
-      })
-  
-      $('.compareBands').click(function () {
-        app.compareBands();
-      })
     },
-  
-    listBeatles: () => {
-      // in this instance can also use this.data, it means the same thing. app.data is safer
-      app.data.beatles.albums.forEach(album => {
-        debugger;
-        $('.beatlesAlbums').append(`<li>${album.name}, ${album.year}</li>`);
-      });
-    },
-  
-    compareBands: () => {
-      const nirvanaMembers = app.data.nirvana.members;
-      const beatlesMembers = app.data.beatles.members;
-  
-      $('.bandsComparison').text(
-        `${nirvanaMembers.length > beatlesMembers.length ? 'Nirvana' : 'Beatles'} 
-      had more members`);
-    }
-  }
+}
